@@ -7,7 +7,6 @@ var router = express.Router();
 var boxsource;
 /* GET home page. */
 var cos = new COS({
-    AppId: '1251755715',
     SecretId: 'AKIDHaPhVxFWsuZhMp6TUE0H4baDPHcaqto3',
     SecretKey: 'ssTQnb63YblRdvCZTS8HKqFCdeWuf7vp',
 });
