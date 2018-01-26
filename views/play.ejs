@@ -30,7 +30,43 @@
         <% if( message.indexOf("jpg")>=0 ||message.indexOf("png") >=0 ) { %>
         <img src="<%= message%>"  />
         <% }
+         else if(message.indexOf("pdf")>=0){
 
+               %>
+
+        <canvas id="canvas"></canvas>
+
+        <script type="text/javascript" src="/static/pdf.js/build/generic/build/pdf.js"></script>
+        <script type="text/javascript">
+        $(function(){
+        var url = '/static/0-0TRSWCM6.5用户手册.pdf';
+        PDFJS.workerSrc = '/static/pdf.js/build/generic/build/pdf.worker.js';
+        PDFJS.getDocument(url).then(function getPdf(pdf) {
+        pdf.getPage(2).then(function getPage(page) {
+        var scale = 1;
+        var viewport = page.getViewport(scale);
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        var renderContext = {
+        canvasContext: context,
+        viewport: viewport
+        };
+        page.render(renderContext);
+        });
+        });
+        });
+
+
+        </script>
+
+
+
+
+
+
+        <%    }
 
         else
         { %>

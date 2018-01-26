@@ -25,7 +25,15 @@
 </div>
 <div class="row">
 
-    <% for(var i=1; i<message.length; i++) {%>
+    <% for(var i=1; i<message.length; i++) {
+        function patch(s){
+            return s.match(/\//g).length;
+        }
+
+
+    %>
+    <%  if(patch(message[0].Key)!=patch(message[i].Key)&&message[i].Key.indexOf('/')>1&&message[i].Size!=0) { %>
+    <%   continue;   } %>
     <div class="col-sm-12 col-md-3">
         <div class="thumbnail"  style="background-color: #eee;">
             <img src="..." alt="...">
@@ -56,16 +64,42 @@
 
 
                     <% }
+                    /* 以下负责显示文件部分    */
+                    /*   多层级文件处理  */
                     else
                     { %>
+
                     <% if( message[i].Key.indexOf('/')>1 ) {
                         var paths=  message[i].Key.split('/')
                         console.log(paths);
+
+
+
+                        console.log('当前详情页面路径:'+nowpath+patch(message[0].Key))
                     %>
+
+
+                    <%   if(patch(message[0].Key)!=patch(message[i].Key))
+                    /*   子层及文件父级显示清除 */
+
+                    { %>
+
+
+
+                    <%   }  else {
+                        console.log('目录：'+patch(message[0].Key)+'项目个数：'+patch(message[i].Key))
+                        /*   正常显示文件学习入口 */
+                    %>
+
                     <a href="/<%= paths %>/play" class="btn btn-primary" role="button">开始学习</a>
                     <a href="#" class="btn btn-default" role="button">xx</a>
 
+                    <%   } %>
+
+
                     <% }
+
+                    /*   单级文件处理  */
                     else
                     { %>
 

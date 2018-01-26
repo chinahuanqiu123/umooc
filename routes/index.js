@@ -92,7 +92,7 @@ router.get('/:list/detail',function (req, res) {
                 // console.log(data.Contents,data.CommonPrefixes);
                 cosdate=data.Contents;
                 console.log(cosdate)
-                res.render('detail', { message: cosdate});
+                res.render('detail', { message: cosdate ,nowpath: req.path });
 
             }
         });
