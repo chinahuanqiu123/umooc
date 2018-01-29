@@ -11,17 +11,45 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <style>
+        h3{
+            font-size: 1.5rem;
+
+        }
+        nav{
+
+            background-color: rgba(38, 166, 154, 0.99)
+        }
+        body{
+            padding-top: 0px;
+
+        }
+    </style>
 </head>
 <body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">SDYU UED 首页</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="jumbotron">
     <div class="container">
         <h1>UXMOOC</h1>
-        <p>SDYU UED付费课程学习平台</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        <p>SDYU UED付费课程内部学习平台，若发现资源加载不出等情况，请确认您是否合法登陆或合法入口进入网站(唯一合法入口：团队网站首页)，请勿传播本站视频</p>
+        <p><a class="waves-effect waves-light btn" href="#" role="button">ACE权限认证</a></p>
     </div>
 </div>
 <div class="page-header">
-    <h1><%= message[0].Key %>课程列表 <small>Subtext for header</small></h1>
+    <h3><%= message[0].Key %>课程列表 <small>Subtext for header</small></h3>
 </div>
 <div class="row">
 
@@ -51,13 +79,13 @@
 
                         %>
 
-                    <a href="/<%= paths1 %>/detail" class="btn btn-primary" role="button">进入课程</a>
-                    <a href="#" class="btn btn-default" role="button">xx</a>
+                    <a href="/<%= paths1 %>/detail" class="waves-effect waves-light btn" role="button">进入课程</a>
+                    <a href="#" class="waves-effect waves-light btn" role="button">xx</a>
 
                          <%
                         }
                         else {%>
-                    <a href="/<%= message[i].Key %>detail" class="btn btn-primary" role="button">进入课程</a>
+                    <a href="/<%= message[i].Key %>detail" class="waves-effect waves-light btn" role="button">进入课程</a>
                     <a href="#" class="btn btn-default" role="button">Button</a>
 
                     <% }%>
@@ -91,8 +119,8 @@
                         /*   正常显示文件学习入口 */
                     %>
 
-                    <a href="/<%= paths %>/play" class="btn btn-primary" role="button">开始学习</a>
-                    <a href="#" class="btn btn-default" role="button">xx</a>
+                    <a href="/<%= paths %>/play" class="waves-effect waves-light btn" role="button">开始学习</a>
+                    <a href="#" class="waves-effect waves-light btn" role="button">xx</a>
 
                     <%   } %>
 
@@ -103,8 +131,8 @@
                     else
                     { %>
 
-                    <a href="/<%= message[i].Key %>/play" class="btn btn-primary" role="button">开始学习</a>
-                    <a href="#" class="btn btn-default" role="button">xx</a>
+                    <a href="/<%= message[i].Key %>/play" class="waves-effect waves-light btn" role="button">开始学习</a>
+                    <a href="#" class="waves-effect waves-light btn" role="button">xx</a>
 
                     <% } %>
 

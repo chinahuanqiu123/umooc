@@ -133,27 +133,40 @@ router.get('/:id/play', function(req, res) {
 });
 
 
-router.get('/login',function (req,res) {
+router.all('/login',function (req,res) {
     var params = {
         Bucket : 'mybox-1251755715',    /* 必须 */
         Region : 'ap-beijing-1'
 
     };
+    console.log(req)
     cos.getBucketAcl(params, function(err, data) {
         if(err) {
             console.log(err);
         } else {
-            console.log(data);
+
+            var user={
+                name:"Chen-xy",
+                age:"22",
+                address:"bj"
+            }
+            if (req.body.username == 'SDYUUEDTEAM' && req.body.pass=='sdyuued' ) {
+
+                req.session.user=user;
+                res.redirect('/')
+            }
+            else {
+                res.redirect('/login');
+
+            }
+
+
+
+
         }
     });
 
-    var user={
-        name:"Chen-xy",
-        age:"22",
-        address:"bj"
-    }
-    req.session.user=user;
-      res.redirect('/')
+
 
 })
 
